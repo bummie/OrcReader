@@ -73,43 +73,43 @@ func printSchemaSQL(orcReader orc.Reader) {
 
 	fmt.Print("CREATE TABLE mytable (\n")
 
-	for index, value := range orcReader.Schema().Columns() {
+	for index, columnName := range orcReader.Schema().Columns() {
 		switch orcReader.Schema().Types()[index+1].Kind.String() {
 		case "BOOLEAN":
-			fmt.Print("\t", value, " ", "BOOLEAN")
+			fmt.Print("\t", columnName, " ", "BOOLEAN")
 			break
 		case "SHORT":
-			fmt.Print("\t", value, " ", "INTEGER")
+			fmt.Print("\t", columnName, " ", "INTEGER")
 			break
 		case "INT":
-			fmt.Print("\t", value, " ", "INTEGER")
+			fmt.Print("\t", columnName, " ", "INTEGER")
 			break
 		case "LONG":
-			fmt.Print("\t", value, " ", "BIGINT")
+			fmt.Print("\t", columnName, " ", "BIGINT")
 			break
 		case "FLOAT":
-			fmt.Print("\t", value, " ", "DOUBLE")
+			fmt.Print("\t", columnName, " ", "DOUBLE")
 			break
 		case "DOUBLE":
-			fmt.Print("\t", value, " ", "DOUBLE")
+			fmt.Print("\t", columnName, " ", "DOUBLE")
 			break
 		case "TIMESTAMP":
-			fmt.Print("\t", value, " ", "TIMESTAMP")
+			fmt.Print("\t", columnName, " ", "TIMESTAMP")
 			break
 		case "DATE":
-			fmt.Print("\t", value, " ", "DATE")
+			fmt.Print("\t", columnName, " ", "DATE")
 			break
 		case "STRING":
-			fmt.Print("\t", value, " ", "VARCHAR")
+			fmt.Print("\t", columnName, " ", "VARCHAR")
 			break
 		case "BINARY":
-			fmt.Print("\t", value, " ", "VARBINARY")
+			fmt.Print("\t", columnName, " ", "VARBINARY")
 			break
 		case "VARCHAR":
-			fmt.Print("\t", value, " ", "VARCHAR")
+			fmt.Print("\t", columnName, " ", "VARCHAR")
 			break
 		default:
-			fmt.Print("\t", value, " ", orcReader.Schema().Types()[index+1].Kind.String())
+			fmt.Print("\t", columnName, " ", orcReader.Schema().Types()[index+1].Kind.String())
 			break
 		}
 
